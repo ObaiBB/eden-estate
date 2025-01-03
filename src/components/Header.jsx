@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import {FaSearch} from 'react-icons/fa'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 const Header = () => {
   return (
@@ -32,11 +33,18 @@ const Header = () => {
                         About
                     </li>
                 </Link>
-                <Link href='/signin'>
+                <SignedIn>
+                    <UserButton/>
+                </SignedIn>
+
+                <SignedOut>
+
+                <Link href='/sign-in'>
                     <li className='hidden md:inline text-slate-700 hover:underline'>
                         Sign in
                     </li>
                 </Link>
+                </SignedOut>
             </ul>
         </div>
     </header>
